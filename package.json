@@ -1,0 +1,39 @@
+{
+  "name": "pulse",
+  "version": "1.0.0",
+  "description": "Instruction based twitter clone",
+  "main": "src/window.js",
+  "scripts": {
+    "start": "npm run build & npm run electron",
+    "build": "webpack --config webpack.config.js",
+    "electron": "electron ."
+  },
+  "author": "Gabriel S. Tobias",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/cli": "^7.1.0",
+    "@babel/core": "^7.1.0",
+    "@babel/plugin-proposal-decorators": "^7.10.5",
+    "@babel/preset-env": "^7.1.0",
+    "@babel/preset-react": "^7.0.0",
+    "babel-loader": "^8.0.2",
+    "css-loader": "^1.0.0",
+    "electron": "^13.1.6",
+    "electron-reloader": "^1.2.1",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "style-loader": "^0.23.0",
+    "webpack": "^4.44.1",
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.0"
+  },
+  "dependencies": {
+    "@babel/plugin-proposal-class-properties": "^7.10.4",
+    "mini-css-extract-plugin": "^0.9.0",
+    "mobx": "^5.15.4",
+    "mobx-react": "^6.2.5",
+    "react-hot-loader": "^4.12.21",
+    "sass": "^1.26.10",
+    "sass-loader": "^9.0.3"
+  }
+}

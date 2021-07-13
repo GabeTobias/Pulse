@@ -1,0 +1,97 @@
+$TextHeavy: #ffffff;
+$TextNormal: #cfcfcf;
+$TextLight: #7e7e7e;
+
+$Background1: #080808;
+$Background2: #0e0e0e;
+$Background3: #111111;
+$Background4: #141414;
+
+$HightlightNormal: #1f1f1f solid 1px;
+$HightlightActive: #ffffff solid 1px;
+
+@mixin Round-1 { border-radius: 0.25rem; }
+@mixin Round-2 { border-radius: 0.5rem; }
+@mixin Round-3 { border-radius: 0.75rem; }
+@mixin Round-4 { border-radius: 1rem; }
+
+body {
+  background-color: $Background4;
+  color: $TextNormal;
+  padding: 2rem;
+}
+
+.TaskPanel {
+  background-color: $Background3;
+  border: $HightlightNormal;
+  width: 100%;
+  padding: 1rem;
+  margin-bottom: 2rem;
+  text-align: left;
+
+  .NewTask {
+    width: 100%;
+    background-color: $Background2;
+    color: #636363;
+  }
+
+  h4 {
+    font-weight: lighter;
+    margin-bottom: 1rem;
+  }
+}
+
+.NotesPanel {
+  background-color: $Background3;
+  border: $HightlightNormal;
+  width: 100%;
+  height: 85vh;
+}
+
+.Header {
+  margin-bottom: 1.5rem;
+
+  h3 {
+    font-weight: lighter;
+  }
+
+  b {
+    font-weight: 500;
+  }
+}
+
+.Task {
+  background-color: $Background2;
+  border: $HightlightNormal;
+  margin-bottom: 1rem;
+  padding: 1rem 1rem 0.75rem 1rem;
+  float: left;
+  width: 100%;
+  text-align: left;
+  font-weight: lighter;
+
+  @include Round-1;
+
+  small {
+    float: left;
+    font-size: 0.8rem;
+    color: $TextLight;
+  }
+
+  button {
+    float: right;
+    margin-top: -0.25rem;
+    padding-top: 0rem;
+    height: 1.5rem;
+    border-radius: 0.25rem;
+    font-weight: 500;
+    margin-bottom: 0px;
+    margin-left: 0.5rem;
+  }
+
+  textarea {
+    background-color: $Background1;
+    color: $TextHeavy;
+    resize: none;
+  }
+}
