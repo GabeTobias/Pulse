@@ -22,16 +22,23 @@ class Task extends Component {
   }
 
   onBlur = () => {
+    //Don't run if not editing
+    if(!this.state.editing) return;
+
     // Pass task input to task value
     store.tasks[this.props.index].text = document.getElementById(this.getElementID()).value;
-    
-    //Update State
     this.setState({ editing: false });
+  }
+
+  toggleTask = () => {
+    if(!this.props.active) store.beginTask(this.props.index);
+    else store.stopTask();
   }
 
   render() {
     let content = <p>{this.props.text}</p>;
-    
+    let clsName = "Task";
+
     //Swap paragraph to textarea if editing
     if(this.state.editing == true) { 
       content = (
@@ -41,11 +48,16 @@ class Task extends Component {
       );
     }
 
+    // Change class if active
+    if(this.props.active) clsName += " active";
+
     return (
-      <div className="Task" onDoubleClick={this.onClick} onBlur={this.onBlur}>
+      <div className={clsName} onDoubleClick={this.onClick} onBlur={this.onBlur}>
         {content}
         <small><b>Gabe</b> - {dateTime.DateFormat(this.props.date)}</small>
-        <button type="button" className="btn btn-warning btn-sm">Start</button>
+        <button type="button" className="btn btn-warning btn-sm" onClick={this.toggleTask}> 
+          {this.props.active ? 'Stop' : 'Start'}
+        </button>
       </div>
     );
   }

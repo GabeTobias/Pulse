@@ -8,7 +8,7 @@ $Background3: #111111;
 $Background4: #141414;
 
 $HightlightNormal: #1f1f1f solid 1px;
-$HightlightActive: #ffffff solid 1px;
+$HightlightActive: #ffd900 solid 1px;
 
 @mixin Round-1 { border-radius: 0.25rem; }
 @mixin Round-2 { border-radius: 0.5rem; }
@@ -28,7 +28,7 @@ body {
   padding: 1rem;
   margin-bottom: 2rem;
   text-align: left;
-
+  
   .NewTask {
     width: 100%;
     background-color: $Background2;
@@ -38,6 +38,16 @@ body {
   h4 {
     font-weight: lighter;
     margin-bottom: 1rem;
+  }
+
+  .modal {
+    margin-left: 10%;
+    width: 80%;
+    color: #333333;
+  }
+
+  .option {
+    margin-right: 0.5rem;
   }
 }
 
@@ -51,12 +61,42 @@ body {
 .Header {
   margin-bottom: 1.5rem;
 
+  small {
+    float: right;
+    margin-top: 0.3rem;
+    color: $TextLight;
+  }
+
   h3 {
+    float: left;
     font-weight: lighter;
   }
 
   b {
     font-weight: 500;
+  }
+}
+
+.TimerBar {
+  height: 1.25rem;
+  font-weight: 600;
+  font-size: 0.7rem;
+  border-radius: 0.1rem !important;
+  background-color: $Background2;
+  border: $HightlightNormal;
+  clear: both;
+  animation-duration: 0.25;
+  transition: 250ms;
+
+  &.hidden {
+    height: 0px;
+    margin-bottom: -1rem;
+    border-width: 0px;
+  }
+
+  .progress-bar {
+    width: 75%; 
+    color: #080808;
   }
 }
 
@@ -69,6 +109,8 @@ body {
   width: 100%;
   text-align: left;
   font-weight: lighter;
+
+  transition: 250ms;
 
   @include Round-1;
 
@@ -93,5 +135,9 @@ body {
     background-color: $Background1;
     color: $TextHeavy;
     resize: none;
+  }
+  
+  &.active {
+    border: $HightlightActive;
   }
 }
