@@ -31,6 +31,10 @@ class Task extends Component {
 
     // Pass task input to task value
     store.tasks[this.props.index].text = document.getElementById(this.getElementID()).value;
+
+    //Store Task Data
+    window.localStorage.setItem('Tasks', JSON.stringify(store.tasks));
+
     this.setState({ editing: false });
   }
 

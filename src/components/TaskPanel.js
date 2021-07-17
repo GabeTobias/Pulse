@@ -8,6 +8,18 @@ import store from "../store";
 
 @observer
 class TaskPanel extends Component {
+  constructor(props) { 
+    super(props);
+
+    //Retrieve Task Data
+    //Check to see if archive is empty
+    let taskData = window.localStorage.getItem('Tasks');
+    store.tasks = (taskData == 'null') ? [] : JSON.parse(taskData);
+
+    //Check to see if archive is empty
+    let archiveData = window.localStorage.getItem('Archive');
+    store.archive = (archiveData == 'null') ? [] : JSON.parse(archiveData);
+  }
 
   NewTask = () => {
     store.tasks.push({
@@ -15,12 +27,20 @@ class TaskPanel extends Component {
       date: Date.now(),
       complete: false
     });
+
+    //Store Task Data
+    window.localStorage.setItem('Tasks', JSON.stringify(store.tasks));
+    window.localStorage.setItem('Archive', JSON.stringify(store.archive));
   }
 
   ArchiveTask = () => {
     store.archive.push(store.tasks[store.activeTask]);
     store.tasks.splice(store.activeTask,1);
     store.activeTask = -1;
+
+    //Store Task Data
+    window.localStorage.setItem('Tasks', JSON.stringify(store.tasks));
+    window.localStorage.setItem('Archive', JSON.stringify(store.archive));
   }
 
   PauseTask = () => {

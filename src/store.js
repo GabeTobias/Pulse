@@ -2,12 +2,10 @@ import { observable, computed } from "mobx"
 import { getTaskDuration, getTaskPercentage } from "./utility/time";
 
 class Store {
-  @observable projectName = "Demo";
+  @observable projectName = "Name";
   @observable activeTask = -1;
   @observable taskTime = 0;
   @observable taskPercent = 0;
-
-  @observable notes = '';
   
   updateInterval = 0;
 
