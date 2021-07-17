@@ -6,12 +6,13 @@ class Store {
   @observable activeTask = -1;
   @observable taskTime = 0;
   @observable taskPercent = 0;
+
+  @observable notes = '';
   
   updateInterval = 0;
 
   @observable archive = [];
-
-    @observable tasks = [{
+  @observable tasks = [{
       text: "This is just a demo task for the sake of testing behaviour",
       date: Date.now(),
       complete: true
@@ -23,12 +24,6 @@ class Store {
     }
   ];
   
-  @observable notes = [
-    { text:"This is a note", date: Date.now()},
-    { text:"This is another note", date: Date.now()},
-    { text:"Final note", date: Date.now()}
-  ];
-
   @observable beginTask (index) {
     this.activeTask = index;
 

@@ -14,7 +14,7 @@ class HeaderPanel extends Component {
         <h3> <b>Project - </b> {store.projectName} </h3>
         
         {/* Display the text of active item IF timer is active, hide otherwise */}
-        <small> { store.activeTask == -1 ? '': Abreviate(store.tasks[store.activeTask].text)} </small>
+        <small> { store.activeTask == -1 ? 'Gabe Tobias': Abreviate(store.tasks[store.activeTask].text)} </small>
         
         {/* Display a timer progress bar only while timer is active*/}
         <div className={store.activeTask == -1 ? "TimerBar progress hidden" : "TimerBar progress"}>

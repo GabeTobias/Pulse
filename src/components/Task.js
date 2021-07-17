@@ -13,6 +13,10 @@ class Task extends Component {
     this.state = {editing: false};
   }
 
+  getContent = () => {
+    return store.tasks[this.props.index];
+  }
+
   getElementID = () => {
     return this.props.index.toString() + 'taskTextInput';
   }
@@ -36,14 +40,14 @@ class Task extends Component {
   }
 
   render() {
-    let content = <p>{this.props.text}</p>;
+    let content = <p>{this.getContent().text}</p>;
     let clsName = "Task";
 
     //Swap paragraph to textarea if editing
     if(this.state.editing == true) { 
       content = (
         <div className="mb-3">
-          <textarea className="form-control" id={this.getElementID()} defaultValue={this.props.text} rows="3"></textarea>
+          <textarea className="form-control" id={this.getElementID()} defaultValue={this.getContent().text} rows="3"></textarea>
         </div>
       );
     }
@@ -54,7 +58,7 @@ class Task extends Component {
     return (
       <div className={clsName} onDoubleClick={this.onClick} onBlur={this.onBlur}>
         {content}
-        <small><b>Gabe</b> - {dateTime.DateFormat(this.props.date)}</small>
+        <small><b>Gabe</b> - {dateTime.DateFormat(this.getContent().date)}</small>
         <button type="button" className="btn btn-warning btn-sm" onClick={this.toggleTask}> 
           {this.props.active ? 'Stop' : 'Start'}
         </button>

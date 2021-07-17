@@ -20,11 +20,11 @@ class App extends Component {
         {/* Tasks & Notes Columns */}
         <div className="container-flex">
           <div className="row">
-            <div className="col-7-md">
+            <div className="col-7">
               <TaskPanel />
             </div>            
-            <div className="col-5-md">
-              {/* <NotesPanel /> */}
+            <div className="col-5">
+              <NotesPanel />
             </div>
           </div>
         </div>

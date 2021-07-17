@@ -55,7 +55,38 @@ body {
   background-color: $Background3;
   border: $HightlightNormal;
   width: 100%;
-  height: 85vh;
+  padding: 1rem;
+  font-weight: lighter;
+
+  li {
+    font-weight: lighter;
+  }
+
+  h4 {
+    font-weight: lighter;
+    margin-bottom: 1rem;
+  }
+
+  .NewNote {
+    width: 100%;
+    height: 2rem;
+    padding-top: 0.2rem;
+    background-color: $Background2;
+    color: #636363;
+  }
+
+  .NotesContainer {
+    padding: 0.5rem 0.5rem 0.5rem 0.5rem;
+    margin-bottom: 0.5rem;
+    background-color: $Background2;
+    border: $HightlightNormal;
+    font-size: 1rem;
+
+    h4{ margin-bottom: 0px; }
+
+    @include Round-1;
+  }
+
 }
 
 .Header {
